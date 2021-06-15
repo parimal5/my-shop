@@ -7,35 +7,36 @@ class ProductsProvider with ChangeNotifier {
   List<Product> _items = [
     Product(
       id: 'p1',
-      title: 'Red Shirt',
-      description: 'A red shirt - it is pretty red!',
-      price: 1500,
+      title: 'Fc Barcelona T-Shirt',
+      description: 'BARCELONA HOME JERSEY WITH MESSI PRINT 2020-21',
+      price: 1500.00,
       imageUrl:
-          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
+          'https://store.fcbarcelona.com/medias/21100M-MESSI-1.jpg?context=bWFzdGVyfGltYWdlc3wzMDkzMzh8aW1hZ2UvanBlZ3xoNzgvaDdjLzg4NjY4NzI1OTAzNjYvMjExMDBNX01FU1NJXzEuanBnfDY4ZjMxM2Y1ZDk3ZDQzNGI4YWE2YWQzNjNkZGFjNzEwMTJhNTE4NDVlMmI2YTQwYjk1ZDIxZjA0NjQxMTViNDA',
     ),
     Product(
       id: 'p2',
-      title: 'Trousers',
-      description: 'A nice pair of trousers.',
-      price: 2000,
+      title: 'Apple MacBook',
+      description:
+          '2020 Apple MacBook Pro (13-inch, 8GB RAM, 256GB SSD, 1.4GHz Quad-core 8th-Generation Intel Core i5 Processor, Two Thunderbolt 3 Ports) - Space Grey',
+      price: 200000.00,
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Trousers%2C_dress_%28AM_1960.022-8%29.jpg/512px-Trousers%2C_dress_%28AM_1960.022-8%29.jpg',
+          'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-pro-13-og-202011?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1604347427000',
     ),
     Product(
       id: 'p3',
-      title: 'Yellow Scarf',
-      description: 'Warm and cozy - exactly what you need for the winter.',
-      price: 3000,
+      title: 'Coding T-shirt',
+      description: 'Warm and cozy - exactly what you need.',
+      price: 1200.00,
       imageUrl:
-          'https://live.staticflickr.com/4043/4438260868_cc79b3369d_z.jpg',
+          'https://images-na.ssl-images-amazon.com/images/I/71xUgLxhY6L.jpg',
     ),
     Product(
       id: 'p4',
-      title: 'A Pan',
-      description: 'Prepare any meal you want.',
-      price: 100000,
+      title: 'Rasberry pi',
+      description: 'Raspberry Pi 3 Model B+, SoC, IoT, PoE Enabled SBC.',
+      price: 100000.00,
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
+          'https://images-na.ssl-images-amazon.com/images/I/71IOISwSYZL._AC_SL1400_.jpg',
     ),
   ];
 
