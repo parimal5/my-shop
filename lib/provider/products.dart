@@ -34,7 +34,7 @@ class ProductsProvider with ChangeNotifier {
       id: 'p4',
       title: 'Rasberry pi',
       description: 'Raspberry Pi 3 Model B+, SoC, IoT, PoE Enabled SBC.',
-      price: 100000.00,
+      price: 10000.00,
       imageUrl:
           'https://images-na.ssl-images-amazon.com/images/I/71IOISwSYZL._AC_SL1400_.jpg',
     ),
@@ -53,6 +53,7 @@ class ProductsProvider with ChangeNotifier {
   }
 
   void addProduct() {
+    final newProduct = 
     notifyListeners();
   }
 }

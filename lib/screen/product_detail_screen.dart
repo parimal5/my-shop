@@ -41,12 +41,22 @@ class ProductDetailScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 40,
             ),
-            Text(
-              '${loadedProduct.description}',
-              textAlign: TextAlign.center,
-              softWrap: true,
+            Container(
+              width: 340,
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black12,
+                  width: 3,
+                ),
+              ),
+              child: Text(
+                '${loadedProduct.description}',
+                textAlign: TextAlign.center,
+                softWrap: true,
+              ),
             ),
           ],
         ),
