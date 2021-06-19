@@ -179,36 +179,16 @@ class _EditProductScreenState extends State<EditProductScreen> {
                           return null;
                         },
                       ),
-                      TextFormField(
-                        initialValue: _initValues['description'],
-                        decoration: InputDecoration(labelText: 'Description'),
-                        maxLines: 3,
-                        keyboardType: TextInputType.multiline,
-                        onSaved: (value) {
-                          _editedProduct = Product(
-                            id: _editedProduct.id,
-                            title: _editedProduct.title,
-                            description: value,
-                            price: _editedProduct.price,
-                            imageUrl: _editedProduct.imageUrl,
-                            isFavourite: _editedProduct.isFavourite,
-                          );
-                        },
-                        validator: (value) {
-                          if (value.isEmpty)
-                            return 'Please enter a Description.';
-                          if (value.length < 10)
-                            return 'Enter some detail about product';
-                          return null;
-                        },
-                      ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Container(
                             width: 100,
                             height: 100,
-                            margin: EdgeInsets.only(top: 8, right: 10),
+                            margin: EdgeInsets.only(
+                              top: 50,
+                              right: 10,
+                            ),
                             decoration: BoxDecoration(
                               border: Border.all(
                                 width: 2,
@@ -251,16 +231,42 @@ class _EditProductScreenState extends State<EditProductScreen> {
                                   return 'Please provide an Image..';
                                 if (!value.startsWith('http') &&
                                     !value.startsWith('https'))
-                                  return 'Please Enter a valid URL.';
+                                  return 'Please Enter a valid URL.S';
                                 if (!value.endsWith('.jpg') &&
                                     !value.endsWith('.png') &&
-                                    !value.endsWith('.jpge'))
-                                  return 'Please enter an Image Url';
+                                    !value.endsWith('.jpeg'))
+                                  return 'Please enter an Image Url E';
                                 return null;
                               },
                             ),
                           )
                         ],
+                      ),
+                      SizedBox(
+                        height: 50,
+                      ),
+                      TextFormField(
+                        initialValue: _initValues['description'],
+                        decoration: InputDecoration(labelText: 'Description'),
+                        maxLines: 3,
+                        keyboardType: TextInputType.multiline,
+                        onSaved: (value) {
+                          _editedProduct = Product(
+                            id: _editedProduct.id,
+                            title: _editedProduct.title,
+                            description: value,
+                            price: _editedProduct.price,
+                            imageUrl: _editedProduct.imageUrl,
+                            isFavourite: _editedProduct.isFavourite,
+                          );
+                        },
+                        validator: (value) {
+                          if (value.isEmpty)
+                            return 'Please enter a Description.';
+                          if (value.length < 10)
+                            return 'Enter some detail about product';
+                          return null;
+                        },
                       ),
                     ],
                   ),

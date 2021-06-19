@@ -62,11 +62,12 @@ class ProductsProvider with ChangeNotifier {
       final response = await http.get(url);
       final extractdData = json.decode(response.body) as Map<String, dynamic>;
       final List<Product> loadedProduct = [];
+      if (extractdData == null) return;
       extractdData.forEach((prodID, prodData) {
         loadedProduct.add(Product(
           id: prodID,
           title: prodData['title'],
-          description: prodData['decription'],
+          description: prodData['description'],
           price: prodData['price'],
           imageUrl: prodData['imageUrl'],
           isFavourite: prodData['isFavourite'],
@@ -89,7 +90,7 @@ class ProductsProvider with ChangeNotifier {
         url,
         body: json.encode({
           'title': product.title,
-          'decription': product.description,
+          'description': product.description,
           'imageUrl': product.imageUrl,
           'price': product.price,
           'isFavourite': product.isFavourite,
