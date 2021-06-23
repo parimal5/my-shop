@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/screen/edit_product_scrren.dart';
+import 'package:shop/screen/edit_product_screen.dart';
 
 import '/widget/app_drawer.dart';
 import '/widget/user_product_item.dart';
@@ -11,13 +11,11 @@ class UserProductScreen extends StatelessWidget {
 
   Future<void> _refreshProduct(BuildContext context) async {
     return Provider.of<ProductsProvider>(context, listen: false)
-        .fetchProducts();
+        .fetchProducts(true);
   }
 
   @override
   Widget build(BuildContext context) {
-    final productsData = Provider.of<ProductsProvider>(context);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Product'),
@@ -31,23 +29,33 @@ class UserProductScreen extends StatelessWidget {
         ],
       ),
       drawer: AppDrawer(),
-      body: RefreshIndicator(
-        onRefresh: () => _refreshProduct(context),
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: 2,
-          ),
-          child: ListView.builder(
-            itemBuilder: (ctx, i) {
-              return UserProductItem(
-                productsData.items[i].title,
-                productsData.items[i].imageUrl,
-                productsData.items[i].id,
-              );
-            },
-            itemCount: productsData.items.length,
-          ),
-        ),
+      body: FutureBuilder(
+        future: _refreshProduct(context),
+        builder: (ctx, snapShot) =>
+            snapShot.connectionState == ConnectionState.waiting
+                ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : RefreshIndicator(
+                    onRefresh: () => _refreshProduct(context),
+                    child: Consumer<ProductsProvider>(
+                      builder: (ctx, productsData, _) => Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 2,
+                        ),
+                        child: ListView.builder(
+                          itemBuilder: (ctx, i) {
+                            return UserProductItem(
+                              productsData.items[i].title,
+                              productsData.items[i].imageUrl,
+                              productsData.items[i].id,
+                            );
+                          },
+                          itemCount: productsData.items.length,
+                        ),
+                      ),
+                    ),
+                  ),
       ),
     );
   }
