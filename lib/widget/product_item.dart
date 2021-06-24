@@ -25,9 +25,12 @@ class ProductItem extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              Image.network(
-                product.imageUrl,
-                fit: BoxFit.cover,
+              Hero(
+                tag: product.id,
+                child: Image.network(
+                  product.imageUrl,
+                  fit: BoxFit.cover,
+                ),
               ),
               Container(
                 alignment: Alignment.topLeft,
